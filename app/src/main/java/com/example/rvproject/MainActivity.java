@@ -4,25 +4,30 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.rvproject.adapter.MainToyAdapter;
+import com.example.rvproject.adapter.SelectListener;
 import com.example.rvproject.databinding.ActivityMainBinding;
 import com.example.rvproject.modalclass.MainToyModalclass;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
     ActivityMainBinding binding;
-    String[] toysname = {"School Bus","Toy Airplane","Rubber Ducky","Toy Car","Toy Dinosaur","Teddy Bear"};
-    Integer[] toyimg = {R.drawable.schoolbus_blue,R.drawable.airplane,R.drawable.dykes,R.drawable.toy_car,R.drawable.dinosaur,R.drawable.bear};
-    String[] toyamount = {"$100","$540","$350","$659","$900","$850"};
+    String[] toysname = {"School Bus", "Toy Airplane", "Rubber Ducky", "Toy Car", "Toy Dinosaur", "Teddy Bear"};
+    Integer[] toyimg = {R.drawable.schoolbus_blue, R.drawable.airplane, R.drawable.dykes, R.drawable.toy_car, R.drawable.dinosaur, R.drawable.bear};
+    String[] toyamount = {"$100", "$540", "$350", "$659", "$900", "$850"};
 
 
     ArrayList<MainToyModalclass> modalclasses = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,15 +41,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        for (int i=0;i<toysname.length;i++){
-            MainToyModalclass m1 = new MainToyModalclass(toysname[i],toyimg[i],toyamount[i]);
+        for (int i = 0; i < toysname.length; i++) {
+            MainToyModalclass m1 = new MainToyModalclass(toysname[i], toyimg[i], toyamount[i]);
             modalclasses.add(m1);
         }
 
-        MainToyAdapter adapter = new MainToyAdapter(this,modalclasses);
+        MainToyAdapter adapter = new MainToyAdapter(this, modalclasses);
         binding.rvData.setAdapter(adapter);
         LinearLayoutManager lm = new LinearLayoutManager(this);
         binding.rvData.setLayoutManager(lm);
 
     }
+
+
 }

@@ -119,6 +119,7 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/btnaddcart"
             android:layout_alignParentBottom="true"
             android:text="ADD TO CART"
             android:backgroundTint="#03A9F4"/>

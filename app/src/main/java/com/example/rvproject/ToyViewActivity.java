@@ -23,14 +23,21 @@ public class ToyViewActivity extends AppCompatActivity {
 
             }
         });
+        binding.btnaddcart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ToyViewActivity.this, AddtoCartActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 void setBinding(){
     Intent intent = getIntent();
 
-    String name = intent.getStringExtra("t1");
-    String amount = intent.getStringExtra("t1");
-    String img = intent.getStringExtra("t1");
+    String name = intent.getStringExtra("toyname");
+    String amount = intent.getStringExtra("toyamount");
+    String img = intent.getStringExtra("toyimg");
 
     binding.txttoyname.setText(name);
     binding.txttoyamount.setText(amount);
